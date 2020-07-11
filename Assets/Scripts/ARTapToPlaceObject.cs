@@ -15,11 +15,6 @@ public class ARTapToPlaceObject : MonoBehaviour
     /// </summary>
     public GameObject gameObjectToInstantiate;
 
-
-    /// <summary>
-    /// Object that has been placed in the world
-    /// </summary>
-    private GameObject spawnedObject;
     private ARRaycastManager arRaycastManager;
     /// <summary>
     /// Position of the touch input
@@ -37,15 +32,15 @@ public class ARTapToPlaceObject : MonoBehaviour
     }
 
     /// <summary>
-    /// Check if there is a touch input.
+    /// Check if there is a touch input and if it's the first event thrown for this input.
     /// If yes <paramref name="touchPosition"/> gets its position.
     /// If not, <paramref name="touchPosition"/> is set to its default value (0, 0).
     /// </summary>
     /// <param name="touchPosition">position of the touch input, this object is modified by the function</param>
-    /// <returns>True if there is a touch input, false otherwise</returns>
+    /// <returns>True if there is a touch input and it's the first one for this input, false otherwise</returns>
     bool TryGetTouchPosition(out Vector2 touchPosition)
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
         {
             touchPosition = Input.GetTouch(0).position;
             return true;
@@ -62,15 +57,7 @@ public class ARTapToPlaceObject : MonoBehaviour
         {
             // If touch input and raycast hit a plane, then spawn an object or move the existing spawned object.
             var hitPose = hits[0].pose;
-
-            if (spawnedObject == null)
-            {
-                spawnedObject = Instantiate(gameObjectToInstantiate, hitPose.position, hitPose.rotation);
-            }
-            else
-            {
-                spawnedObject.transform.position = hitPose.position;
-            }
+            Instantiate(gameObjectToInstantiate, hitPose.position, hitPose.rotation);
         }
     }
 }
