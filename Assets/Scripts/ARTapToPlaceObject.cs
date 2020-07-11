@@ -20,7 +20,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     /// Object that has been placed in the world
     /// </summary>
     private GameObject spawnedObject;
-    private ARRaycastManager _arRaycastManager;
+    private ARRaycastManager arRaycastManager;
     /// <summary>
     /// Position of the touch input
     /// </summary>
@@ -33,7 +33,7 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     private void Awake()
     {
-        _arRaycastManager = GetComponent<ARRaycastManager>();
+        arRaycastManager = GetComponent<ARRaycastManager>();
     }
 
     /// <summary>
@@ -58,7 +58,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     {
         if (!TryGetTouchPosition(out touchPosition))
             return;
-        if (_arRaycastManager.Raycast(touchPosition, hits, TrackableType.PlaneWithinPolygon))
+        if (arRaycastManager.Raycast(touchPosition, hits, TrackableType.PlaneWithinPolygon))
         {
             // If touch input and raycast hit a plane, then spawn an object or move the existing spawned object.
             var hitPose = hits[0].pose;
