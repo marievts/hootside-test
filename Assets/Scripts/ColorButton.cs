@@ -34,6 +34,7 @@ public class ColorButton : MonoBehaviour
 
     /// <summary>
     /// Change color of the next cubes to be spawned
+    /// then close menu.
     /// </summary>
     public void ChangeCubeColor()
     {
@@ -52,5 +53,6 @@ public class ColorButton : MonoBehaviour
             return;
         }
         cube.SetProfile(profile);
+        MenuHandler.instance.CloseMenu();
     }
 }

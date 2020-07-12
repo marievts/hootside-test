@@ -7,6 +7,12 @@ using UnityEngine;
 /// </summary>
 public class MenuHandler : MonoBehaviour
 {
+
+    /// <summary>
+    /// Instance of itself to get a singleton pattern
+    /// </summary>
+    public static MenuHandler instance;
+
     /// <summary>
     /// Animator component with the menu animations
     /// </summary>
@@ -18,9 +24,28 @@ public class MenuHandler : MonoBehaviour
     private bool isOpen = false;
 
     /// <summary>
+    /// Singleton pattern :
+    /// Instanciate a new AudioManager if no existing instance, 
+    /// otherwise take the already existing instance.
+    /// </summary>
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        else
+        {
+            instance = this;
+        }
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+    /// <summary>
     /// Toogle the menu
     /// </summary>
-    public void toogleIsOpen()
+    public void ToogleIsOpen()
     {
         isOpen = !isOpen;
         animator.SetBool("is_open", isOpen);
@@ -33,5 +58,12 @@ public class MenuHandler : MonoBehaviour
         {
             audioManager.PlaySFX("close_menu");
         }
+    }
+
+    public void CloseMenu()
+    {
+        isOpen = false;
+        animator.SetBool("is_open", isOpen);
+        AudioManager.instance.PlaySFX("close_menu");
     }
 }
