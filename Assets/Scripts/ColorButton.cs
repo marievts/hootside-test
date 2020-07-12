@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 
+/// <summary>
+/// Color button, allow to change the color of the next cubes to spawn.
+/// </summary>
 [RequireComponent(typeof(Button), typeof(Image))]
 public class ColorButton : MonoBehaviour
 {
@@ -14,6 +17,9 @@ public class ColorButton : MonoBehaviour
     /// </summary>
     public CubeProfile profile;
 
+    /// <summary>
+    /// Image of the button
+    /// </summary>
     private Image image;
 
     private void Awake()
@@ -26,6 +32,9 @@ public class ColorButton : MonoBehaviour
         image.color = profile.color;
     }
 
+    /// <summary>
+    /// Change color of the next cubes to be spawned
+    /// </summary>
     public void ChangeCubeColor()
     {
         ARTapToPlaceObject tapToPlaceObject = FindObjectOfType<ARSessionOrigin>()
