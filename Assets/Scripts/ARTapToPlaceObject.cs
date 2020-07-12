@@ -58,6 +58,7 @@ public class ARTapToPlaceObject : MonoBehaviour
             // If touch input and raycast hit a plane, then spawn an object or move the existing spawned object.
             var hitPose = hits[0].pose;
             Instantiate(gameObjectToInstantiate, hitPose.position, hitPose.rotation);
+            AudioManager.instance.PlaySFX("spawn_object");
         }
     }
 }

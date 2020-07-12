@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Handle the visibility of the Menu
 /// </summary>
-public class HandleMenu : MonoBehaviour
+public class MenuHandler : MonoBehaviour
 {
     /// <summary>
     /// Animator component with the menu animations
@@ -24,5 +24,14 @@ public class HandleMenu : MonoBehaviour
     {
         isOpen = !isOpen;
         animator.SetBool("is_open", isOpen);
+        AudioManager audioManager = AudioManager.instance;
+        if (isOpen)
+        {
+            audioManager.PlaySFX("open_menu");
+        }
+        else
+        {
+            audioManager.PlaySFX("close_menu");
+        }
     }
 }
