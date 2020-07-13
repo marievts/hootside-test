@@ -57,7 +57,7 @@ public class WeatherController : MonoBehaviour
     private IEnumerator GetWeather(Action<WeatherInfo> onSuccess)
     {
         using (UnityWebRequest req = UnityWebRequest.Get(
-            string.Format("api.openweathermap.org/data/2.5/weather?q={0}&appid={1}",
+            string.Format("https://api.openweathermap.org/data/2.5/weather?q={0}&appid={1}",
                 cityId, API_KEY)))
         {
             yield return req.SendWebRequest();
@@ -83,6 +83,7 @@ public class WeatherController : MonoBehaviour
             return;
         }
         string weatherName = weatherInfo.weather[0].main;
+        weatherName = "Clear";
 #if DEBUG
         Debug.Log("Weather : " + weatherName);
 #endif
