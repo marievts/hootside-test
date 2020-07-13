@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 
 /// <summary>
-/// Color button, allow to change the color of the next cubes to spawn.
+/// Color button, allow to change the color the cubes.
 /// </summary>
 [RequireComponent(typeof(Button), typeof(Image))]
 public class ColorButton : MonoBehaviour
@@ -31,7 +29,7 @@ public class ColorButton : MonoBehaviour
     }
 
     /// <summary>
-    /// Change color of the next cubes to be spawned
+    /// Change color of the cubes
     /// then close menu.
     /// </summary>
     public void ChangeCubeColor()
