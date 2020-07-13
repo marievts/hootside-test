@@ -83,7 +83,6 @@ public class WeatherController : MonoBehaviour
             return;
         }
         string weatherName = weatherInfo.weather[0].main;
-        weatherName = "Clear";
 #if DEBUG
         Debug.Log("Weather : " + weatherName);
 #endif
