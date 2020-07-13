@@ -25,7 +25,8 @@ public class MenuHandler : MonoBehaviour
     /// <summary>
     /// Is the menu currently open
     /// </summary>
-    private bool isOpen = false;
+    [HideInInspector]
+    public bool isOpen = false;
 
     /// <summary>
     /// Singleton pattern :

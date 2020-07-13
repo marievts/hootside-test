@@ -57,6 +57,8 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     void Update()
     {
+        if (MenuHandler.instance.isOpen)
+            return;
         if (!TryGetTouchPosition(out touchPosition))
             return;
 
