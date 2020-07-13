@@ -12,7 +12,7 @@ public class Sound
     [Tooltip("Sound file to be played")]
     public AudioClip clip;
     [Tooltip("Volume the sound must be played")]
-    [Range(0f, 3f)]
+    [Range(0f, 1f)]
     public float volume = 1f;
     [Tooltip("Pitch the sound must be played")]
     [Range(.1f, 3f)]
