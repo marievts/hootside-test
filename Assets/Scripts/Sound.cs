@@ -6,29 +6,18 @@
 [System.Serializable]
 public class Sound
 {
-    /// <summary>
-    /// Name that sound should be refered as.
-    /// </summary>
+    [Tooltip("Name that sound should be refered as.")]
     public string name;
 
-    /// <summary>
-    /// Sound file to be played
-    /// </summary>
+    [Tooltip("Sound file to be played")]
     public AudioClip clip;
-
-    /// <summary>
-    /// Volume the sound must be played
-    /// </summary>
+    [Tooltip("Volume the sound must be played")]
     [Range(0f, 3f)]
     public float volume = 1f;
-    /// <summary>
-    /// Pitch the sound must be played
-    /// </summary>
+    [Tooltip("Pitch the sound must be played")]
     [Range(.1f, 3f)]
     public float pitch = 1f;
-    /// <summary>
-    /// Must this sound be played in loop ?
-    /// </summary>
+    [Tooltip("Must this sound be played in loop ?")]
     public bool loop;
 
     /// <summary>

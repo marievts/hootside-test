@@ -13,27 +13,27 @@ using UnityEngine.Networking;
 /// </summary>
 public class WeatherController : MonoBehaviour
 {
+    [Tooltip("City where to get the weather")]
+    public string cityId;
+    [Tooltip("How much seconds between each API call")]
+    public float apiCheckMaxtime = 5 * 60.0f; // 5 min
+    [Tooltip("Gameobjects with particles on them, their name " +
+        "should correspond to a weather name from openweathermap")]
+    public List<GameObject> particleObjects;
+
     /// <summary>
     /// openweathermap API key
     /// </summary>
     private const string API_KEY = "bd07091b9aaf4a7bef85d383ca6b602a";
     /// <summary>
-    /// How much seconds between each API call
-    /// </summary>
-    private const float API_CHECK_MAXTIME = 5 * 60.0f; // 5 min
-    /// <summary>
     /// Time remaining before next API call
     /// </summary>
-    private float apiCheckCountdown = API_CHECK_MAXTIME;
+    private float apiCheckCountdown;
 
-    /// <summary>
-    /// City where get the weather
-    /// </summary>
-    public string cityId;
-    /// <summary>
-    /// Gameobjects with particles on them
-    /// </summary>
-    public List<GameObject> particleObjects;
+    private void Awake()
+    {
+        apiCheckCountdown = apiCheckMaxtime;
+    }
 
     void Start()
     {
@@ -45,7 +45,7 @@ public class WeatherController : MonoBehaviour
         apiCheckCountdown -= Time.deltaTime;
         if(apiCheckCountdown <= 0)
         {
-            apiCheckCountdown = API_CHECK_MAXTIME;
+            apiCheckCountdown = apiCheckMaxtime;
             StartCoroutine(GetWeather(UpdateParticleEffect));
         }
     }
@@ -91,11 +91,11 @@ public class WeatherController : MonoBehaviour
             if(particleObj.name == weatherName)
             {
                 particleObj.SetActive(true);
-                Debug.Log("Activate " + particleObj.name);
+                //Debug.Log("Activate " + particleObj.name);
             } else
             {
                 particleObj.SetActive(false);
-                Debug.Log("Deactivate " + particleObj.name);
+                //Debug.Log("Deactivate " + particleObj.name);
             }
         }
     }

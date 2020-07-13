@@ -10,9 +10,7 @@ using UnityEngine.XR.ARSubsystems;
 [RequireComponent(typeof(ARRaycastManager))]
 public class ARTapToPlaceObject : MonoBehaviour
 {
-    /// <summary>
-    /// Object to instantiate when we place an object
-    /// </summary>
+    [Tooltip("Object to instantiate when we place an object")]
     public GameObject gameObjectToInstantiate;
 
     private ARRaycastManager arRaycastManager;

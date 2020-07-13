@@ -1714,7 +1714,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 674849940}
-  - component: {fileID: 674849941}
   m_Layer: 8
   m_Name: Screen_Menu
   m_TagString: Untagged
@@ -1744,25 +1743,6 @@ RectTransform:
   m_AnchoredPosition: {x: -1080, y: 0}
   m_SizeDelta: {x: 100, y: 101}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &674849941
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 674849939}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a203894d42a4f54458428ea858014c57, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &688295480
 GameObject:
   m_ObjectHideFlags: 0
@@ -4175,7 +4155,7 @@ RectTransform:
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1615113301 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5268933599103501148, guid: 252f1c5671b60cd4ebe5f8e554986448,
+  m_CorrespondingSourceObject: {fileID: 6576092789452270933, guid: 252f1c5671b60cd4ebe5f8e554986448,
     type: 3}
   m_PrefabInstance: {fileID: 5268933599644348169}
   m_PrefabAsset: {fileID: 0}
@@ -5328,10 +5308,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5268933599103501149, guid: 252f1c5671b60cd4ebe5f8e554986448,
         type: 3}
       propertyPath: m_Name
       value: MenuHandler
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576092789452270933, guid: 252f1c5671b60cd4ebe5f8e554986448,
+        type: 3}
+      propertyPath: menuPanel
+      value: 
+      objectReference: {fileID: 674849939}
+    - target: {fileID: 6576092789452270933, guid: 252f1c5671b60cd4ebe5f8e554986448,
+        type: 3}
+      propertyPath: xClose
+      value: -1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576092789452270933, guid: 252f1c5671b60cd4ebe5f8e554986448,
+        type: 3}
+      propertyPath: tweenTime
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5268933599103501151, guid: 252f1c5671b60cd4ebe5f8e554986448,
         type: 3}
@@ -5388,10 +5387,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5268933599103501148, guid: 252f1c5671b60cd4ebe5f8e554986448,
-        type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 674849941}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 252f1c5671b60cd4ebe5f8e554986448, type: 3}

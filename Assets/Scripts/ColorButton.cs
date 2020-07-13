@@ -10,11 +10,9 @@ using UnityEngine.XR.ARFoundation;
 [RequireComponent(typeof(Button), typeof(Image))]
 public class ColorButton : MonoBehaviour
 {
-    /// <summary>
-    /// ScriptableObject with all data needed for a cube.
-    /// Here we need it to set the color of the button and give the
-    /// profile to the cube when the button is selected.
-    /// </summary>
+    [Tooltip("ScriptableObject with all data needed for a cube. " +
+        "Here we need it to set the color of the button and give " +
+        "the profile to the cube when the button is selected.")]
     public CubeProfile profile;
 
     /// <summary>

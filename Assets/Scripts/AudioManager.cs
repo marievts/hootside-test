@@ -10,9 +10,8 @@ public class AudioManager : MonoBehaviour
     /// Instance of itself to get a singleton pattern
     /// </summary>
     public static AudioManager instance;
-    /// <summary>
-    /// All sound effects needed for the app
-    /// </summary>
+
+    [Tooltip("All sound effects needed for the app.")]
     public Sound[] soundsFX;
 
     /// <summary>

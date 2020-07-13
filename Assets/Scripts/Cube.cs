@@ -7,9 +7,7 @@ using UnityEngine;
 /// </summary>
 public class Cube : MonoBehaviour
 {
-    /// <summary>
-    /// ScriptableObject with all data needed
-    /// </summary>
+    [Tooltip("ScriptableObject with all data needed")]
     public CubeProfile profile;
 
     // Start is called before the first frame update
@@ -23,7 +21,7 @@ public class Cube : MonoBehaviour
     /// </summary>
     private void SetupCube()
     {
-        GetComponent<Renderer>().material.color = profile.color;
+        GetComponent<Renderer>().sharedMaterial.color = profile.color;
     }
 
     /// <summary>

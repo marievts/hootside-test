@@ -13,10 +13,14 @@ public class MenuHandler : MonoBehaviour
     /// </summary>
     public static MenuHandler instance;
 
-    /// <summary>
-    /// Animator component with the menu animations
-    /// </summary>
-    public Animator animator;
+    [Tooltip("UI panel corresponding to the menu")]
+    public GameObject menuPanel;
+    [Tooltip("X position of the menu panel when close")]
+    public float xClose;
+    [Tooltip("X position of the menu panel when open")]
+    public float xOpen;
+    [Tooltip("Time to get from open to close position and vice versa")]
+    public float tweenTime;
 
     /// <summary>
     /// Is the menu currently open
@@ -48,7 +52,10 @@ public class MenuHandler : MonoBehaviour
     public void ToogleIsOpen()
     {
         isOpen = !isOpen;
-        animator.SetBool("is_open", isOpen);
+        float to = xOpen;
+        if (!isOpen)
+            to = xClose;
+        LeanTween.moveLocalX(menuPanel, to, tweenTime);
         AudioManager audioManager = AudioManager.instance;
         if (isOpen)
         {
@@ -63,7 +70,7 @@ public class MenuHandler : MonoBehaviour
     public void CloseMenu()
     {
         isOpen = false;
-        animator.SetBool("is_open", isOpen);
+        LeanTween.moveLocalX(menuPanel, xClose, tweenTime);
         AudioManager.instance.PlaySFX("close_menu");
     }
 }
